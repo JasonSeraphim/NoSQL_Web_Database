@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Records</title>
+    <style>
+        /* Add animation for button hover */
+        @keyframes buttonScale {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #077f13a0, #0954d4bc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e2e2e2;
+        }
+
+        /* Add animation for button hover */
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            /* Add animation properties */
+            animation: buttonScale 0.3s ease;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+            /* Add animation properties */
+            animation: buttonScale 0.3s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Display Records</h1>
+        <table>
+            <tr>
+                <th>Account Number</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Location</th>
+                <th>District</th>
+            </tr>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.account_number }}</td>
+                <td>{{ record.first_name }}</td>
+                <td>{{ record.last_name }}</td>
+                <td>{{ record.location }}</td>
+                <td>{{ record.district }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
